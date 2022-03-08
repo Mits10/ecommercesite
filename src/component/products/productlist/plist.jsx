@@ -36,7 +36,7 @@ const Productlist = () => {
   
   {productList.map((product)=>{
     return (
-  <Grid item container md={3} onClick={()=>getDetail(product.id)}>
+  <Grid item container md={4} onClick={()=>getDetail(product.id)}>
   <Grid item xs={12}>
   
     

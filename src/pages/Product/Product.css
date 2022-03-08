@@ -1,0 +1,19 @@
+.productA{
+    display: flex;
+    
+}
+.productAChild{
+    display: flex;
+}
+.imageA{
+    width: 146px;
+    height: 154px;
+    justify-content: center;
+    background: url('./../../assets/Images/product_1.png');
+}
+.imageB{
+    width: 476px;
+    height: 654px;
+    background: url('./../../assets/Images/product_2.png');
+
+}

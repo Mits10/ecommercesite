@@ -1,46 +1,68 @@
 import Grid from '@mui/material/Grid';
 import React,{useState} from 'react';
 import './genre.css';
+import home1 from './../../../assets/Images/1.png';
+import home2 from './../../../assets/Images/home2.png';
+import home3 from './../../../assets/Images/home3.png';
+import home4 from './../../../assets/Images/home4.png';
 const GenreC=()=>{
     const [gimages,setGImages]= useState([
         {
             id:1,
-            img:'https://abe.com.bd/images/homebanner/1618135421WKXJtICBRTNh.jpg'
+            img:home1
         },
         {
             id:2,
-            img:'https://quadcubes.com/uplu/2020/12/mubarack-product-photoshoot-calicut.jpg'
+            img:home2
         },
         {
             id:3,
-            img:'https://media.istockphoto.com/photos/flat-lay-of-modern-mens-clothing-on-a-wooden-background-picture-id665032164?b=1&k=20&m=665032164&s=170667a&w=0&h=17_O0sKPUpoIWLBcIzuVUCe9RnoorOZvuUFMjHJcI1Q='
+            img:home3
         },
         {
             id:4,
-            img:'https://www.oberlo.com/media/1603955896-clothing-accessories-flatlay-1.jpg'
+            img:home4
         }
     ])
 return(
     <>
     <div>
-    <Grid conatiner justifyContent={'center'} spacing={2}>
+    <Grid container justifyContent={'center'} spacing={2}>
     <Grid item container md={12}>
     <Grid item xs={12}>
     <h2>Genre</h2>
     </Grid>
     </Grid>
-    {gimages.map((gimage)=>{
+    </Grid>
+    <Grid container>
+    {gimages.map((gimage,index)=>{
+        if(index===0 || index===3){
     return(
-        <Grid item container md={3}>
-            <Grid xs={12}>
-            
-                <img src={gimage.img} alt="category" className='imageG'/>
+        
+        <Grid item container md={4}>
+            <Grid item xs={12}>
+            <div><img src={gimage.img} alt="category" className='imageG'/></div>
+                
             
             </Grid>
         </Grid>
-    )
+        
+    )}
+    else{
+        return(
+            
+            <Grid item container md={8}>
+                <Grid item xs={12}>
+                
+                    <div><img src={gimage.img} alt="category" className='imageH'/></div>
+                
+                </Grid>
+            </Grid>
+            
+        )}
         })}
-    </Grid>
+   </Grid>
+
     </div>
     </>
 );

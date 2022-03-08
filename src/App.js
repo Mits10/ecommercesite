@@ -1,11 +1,9 @@
-import Products from "./component/products/products";
-import Home from "./pages/Home";
-import DailyDeals from "./pages/Home/DailyDeals/dailyDeals";
+import Page from "./pages";
 
 function App() {
  return(
    <>
-   <Home/>
+   <Page/>
    </>
  );
 }

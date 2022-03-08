@@ -28,7 +28,7 @@ const Deals=({seeMorep})=>{
           setProductList(json);
         });
         }
-      }, []);
+      }, [seeMorep]);
 console.log(seeMorep);
 return(
     <>
