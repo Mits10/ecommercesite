@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-const Deals=({seeMorep})=>{
+const Deals=({seeMorep,statusControl,setProductId})=>{
 
     const [productList,setProductList]=useState([]);
 
@@ -29,7 +29,12 @@ const Deals=({seeMorep})=>{
         });
         }
       }, [seeMorep]);
-console.log(seeMorep);
+
+
+      const seeDetails=(id)=>{
+          statusControl('Product');
+          setProductId(id);
+      }
 return(
     <>
         <Grid container  justifyContent={'center'} spacing={2} >
@@ -65,6 +70,7 @@ return(
           <Typography variant="body2" color="text.secondary">
             {product.description.substr(0,40)}
           </Typography>
+          <button onClick={()=>seeDetails(product.id)}>See Details</button>
         </CardContent>
        
         
