@@ -1,4 +1,3 @@
-import React , {useEffect,useState} from 'react';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -10,33 +9,10 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-const Productlist = () => {
-    const [productList,setProductList]=useState([]);
-    const [productDetail,setProductDetail]=useState(null);
-
-    useEffect(() => {
-      fetch("https://fakestoreapi.com/products")
-      .then((res)=>res.json())
-      .then((json)=>{
-        setProductList(json);
-      });
-    }, []);
-    
-  const getDetail=(id)=>{
-    fetch(`https://fakestoreapi.com/products/${id}`)
-    .then((res)=>res.json())
-    .then((json)=>{
-      setProductDetail(json);
-    })
-  }
-  
-    return (
-  
-  <Grid container  justifyContent={'center'} spacing={2} >
-  
-  {productList.map((product)=>{
-    return (
-  <Grid item container md={4} onClick={()=>getDetail(product.id)}>
+const ProductDesign=({product,seeDetails})=>{
+return(
+    <>
+    <Grid item container md={3} >
   <Grid item xs={12}>
   
     
@@ -65,18 +41,14 @@ const Productlist = () => {
           <Typography variant="body2" color="text.secondary">
             {product.description.substr(0,40)}
           </Typography>
+          <button onClick={()=>seeDetails(product.id)}>See Details</button>
         </CardContent>
        
         
       </Card>
       </Grid>
       </Grid>
-      );
-  })}
-  
-     
-      </Grid>
-  
-    );
+    </>
+);
 }
-export default Productlist;
+export default ProductDesign;

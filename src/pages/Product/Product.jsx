@@ -2,28 +2,24 @@ import DailyDeals from './../Home/DailyDeals/dailyDeals';
 import './Product.css';
 import React,{useState,useEffect} from 'react';
 import UpdateProduct from './../EditProduct/updateProduct';
-
+import {getProduct,deleteProduct} from './../../utills/api';
+import {work,workB} from './../../component/middleware/middleware';
 const Product=({productId})=>{
-    const [option,setOption]=useState('Product');
-    const [productDetail,setProductDetail]=useState(null);
+ const [option,setOption]=useState('Product');
+ const [productDetail,setProductDetail]=useState(null);
 
-    const status=(option)=>{
-        setOption(option);
-    }
-   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${productId}`)
-    .then((res)=>res.json())
-    .then((json)=>{setProductDetail(json);
-    });
-      
-   }, [productId])
+ const status=(option)=>{
+  setOption(option);
+ }
 
-    const on_delete=()=>{
-        fetch(`https://fakestoreapi.com/products/${productId}`,{
-            method:"DELETE"
-        })
-            .then(res=>res.json())
-            .then(json=>console.log(json))
+ useEffect(() => {
+  const chooseFunction=getProduct(productId);
+  work(chooseFunction,setProductDetail);       
+ }, [productId])
+
+const on_delete=()=>{
+    const chooseFunction= deleteProduct(productId);
+    workB(chooseFunction);  
     }
 
     return(
@@ -83,7 +79,7 @@ const Product=({productId})=>{
         </div>
         </div>
         
-        : <UpdateProduct setOption={setOption}/>
+        : <UpdateProduct setOption={setOption} productId={productId}/>
         
         }</>}
         </>

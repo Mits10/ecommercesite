@@ -8,6 +8,7 @@ const Header =({statusControl})=>{
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="#create" onClick={()=>statusControl('Create Product')}>Create Product</a>
+        <a href="#products" onClick={()=>statusControl('Products')}>Products</a>
         <input type="text" placeholder="Search.."/>
         </div>
         </>

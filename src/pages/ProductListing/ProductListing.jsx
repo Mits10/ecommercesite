@@ -1,27 +1,55 @@
 import Grid from '@mui/material/Grid';
-import Productlist from '../../component/products/productlist/plist';
-const ProductListing=()=>{
-    return(
-        <>
-        <div>
-            <Grid container>
-                <Grid item md={4}>
-                    <Grid item xs={12}>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
-                    <label for="vehicle1"> I have a bike</label><br/>
-                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car"/>
-                    <label for="vehicle2"> I have a car</label><br/>
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat"/>
-                    <label for="vehicle3"> I have a boat</label><br/><br/>
-                    <input type="submit" value="Submit"/>
-                    </Grid>
-                </Grid>
-                <Grid item md={8}>
-                    <Grid item xs={12}>
-                        <Productlist/>
-                    </Grid>
-                </Grid>
-            </Grid>
+import React , {useEffect,useState} from 'react';
+import ProductDesign from './../../component/products/Product/product';
+import CategoryFilter from '../../component/Filters/CategoryFilter';
+import { getProductByCategory, sortProduct } from '../../utills/api';
+import { work } from '../../component/middleware/middleware';
+import OrderFilter from '../../component/Filters/OrderFilter';
+
+const ProductListing=({statusControl,setProductId})=>{
+const [productList,setProductList]=useState([]);
+const onSort=(type,value)=>{
+console.log(value);
+const chooseFunction = 
+type==='Order' ? sortProduct(value)
+: getProductByCategory(value);
+work(chooseFunction,setProductList);
+}
+const seeDetails=(id)=>{
+    statusControl('Product');
+    setProductId(id);
+  }
+ return(
+ <>
+ <div>
+  <Grid container>
+
+    <Grid item md={4}>
+     <Grid item xs={12}>
+       <CategoryFilter onSort={onSort}/>
+       <OrderFilter onSort={onSort}/>
+     </Grid>
+    </Grid>
+    <Grid container>
+    {/*<Grid item md={8}>
+     <Grid item xs={12}>*/}
+     {productList.length <=0 ? 
+     <>
+         <div>Loading...</div>
+    </> :
+     
+     productList.map((product)=>{
+      return (
+          <ProductDesign product={product} seeDetails={seeDetails}/>
+      );
+    })
+    
+    }
+    </Grid>
+     {/*</Grid>
+    </Grid>*/}
+
+ </Grid>
         </div>
         </>
     );
