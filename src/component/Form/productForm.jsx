@@ -1,8 +1,11 @@
+import './ProductForm.css';
 const ProductForm=({inputs,handleChange,handleSubmit})=>{
 return(
     <>
     <div className='createProduct'>
+    
         <form onSubmit={handleSubmit}>
+       
         <label>Enter product title:
         <input 
             type="text" 
@@ -44,7 +47,9 @@ return(
         />
         </label>
         <input type="submit" />
+        
         </form>
+        
         </div>
     </>
 );
