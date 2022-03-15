@@ -1,10 +1,17 @@
 import Page from "./pages";
-import React , {useEffect,useState} from 'react';
-import {getProducts} from './utills/api';
+import { Routes, Route } from "react-router-dom";
 function App() {
  return(
    <>
-   <Page/>
+  <Routes>
+    <Route
+     path= '/'
+     element={<Page/>}
+    />
+     <Route 
+     path="*" 
+     element={<h1>404 page not found!</h1>} />
+  </Routes>
    </>
  );
 }
