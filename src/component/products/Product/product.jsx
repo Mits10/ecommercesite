@@ -12,9 +12,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 const ProductDesign=({product,seeDetails})=>{
 return(
     <>
-    <Grid item container md={3} >
-  <Grid item xs={12}>
-  
+ 
     
   <Card sx={{ maxWidth: 345 }}>
         <CardHeader
@@ -46,8 +44,7 @@ return(
        
         
       </Card>
-      </Grid>
-      </Grid>
+    
     </>
 );
 }

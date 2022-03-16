@@ -1,9 +1,9 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 const OrderFilter=({onSort})=>{
-    const[order,setOrder]=useState(null);
+    const[order,setOrder]=useState('');
     const handleChange = (e) => {
         setOrder(e.target.value);
-        onSort("Order",order);
+        onSort("Order",e.target.value);
      }
     return (
         <>

@@ -27,7 +27,11 @@ return(
   <Grid container  justifyContent={'center'} spacing={2} >
     {productList.map((product)=>{
       return (
+        <Grid item container md={3} >
+        <Grid item xs={12}>      
           <ProductDesign product={product} seeDetails={seeDetails}/>
+          </Grid>
+          </Grid>
       );
     })}
   </Grid>

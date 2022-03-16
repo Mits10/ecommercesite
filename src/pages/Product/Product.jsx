@@ -33,43 +33,58 @@ const on_delete=()=>{
         <>
        
        
-         <div>
+        <div className='product'>
         <div className='productA'>
             <div className='productAChild'>
                 <div className='imageA'>
-                        <h2>hi</h2>
+                       
                         <img src={productDetail.image} className='imageyu'/>
                     </div> 
                     <div className='imageB'>
-                    <h2>hi</h2>
+                    
+                    <img src={productDetail.image} className='imagevu'/>
                     </div>
             </div>
             <div className='productB'>
-                <h2>title : {productDetail.title}</h2>
-                <h2>price : {productDetail.price}</h2>
+                <h3>{productDetail.title}</h3>
+                <h1>{productDetail.price}</h1>
                 <h2>Category : {productDetail.category}</h2>
+                <div>
                 <h2>size</h2>
                 <ul>
                     <li><button>S</button></li>
+                    <li><button>M</button></li>
+                    <li><button>L</button></li>
+                    <li><button>XL</button></li>
                 </ul>
+                </div>
+                <div>
                 <h2>Color</h2>
                 <ul>
-                    <li>
-                        <button>RED</button>
-                    </li>
+                    <li><button>RED</button></li>
+                    <li><button>RED</button></li>
+                    <li><button>RED</button></li>
+                   
                 </ul>
+                </div>
+                <div>
                 <h2>Quantity</h2>
-                <button>ADD To Basket</button>
+                </div>
+                <div className='addToBasket'>
+                <button >ADD To Basket</button>
                 <button>WishList</button>
+                </div>
+                <div>
                 <button onClick={()=>status()}>Edit</button>
                 <button onClick={on_delete}>Delete</button>
+                </div>
                 <div>
                     <div>
                         <h2>Free Shipping</h2>
                         <p>fffffffffff</p>
                     </div>
                     <div>
-                        <h1>Retrurn Policy</h1>
+                        <h2>Retrurn Policy</h2>
                         <p>fdddddddddd</p>
                     </div>
                 </div>

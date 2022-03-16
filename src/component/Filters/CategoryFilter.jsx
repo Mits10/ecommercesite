@@ -5,7 +5,7 @@ import { getAllCategories } from '../../utills/api';
 const CategoryFilter=({onSort})=>{
 
     const [categories,setCategories]=useState([]);
-    const [category,setCategory]=useState(null);
+    const [category,setCategory]=useState('');
     useEffect(()=>{
         const chooseFunction=getAllCategories();
         work(chooseFunction,setCategories);
@@ -13,8 +13,11 @@ const CategoryFilter=({onSort})=>{
        
     const handleChange = (e) => {
        setCategory(e.target.value);
-       onSort("Category",category);
+       onSort("Category",e.target.value);
     }
+
+        
+    
 
     return(
         <>

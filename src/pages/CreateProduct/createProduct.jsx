@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import './createProduct.css';
+
 import { createProduct } from '../../utills/api';
 import { workB } from '../../component/middleware/middleware';
 import ProductForm from '../../component/Form/productForm';
