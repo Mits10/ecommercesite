@@ -1,15 +1,19 @@
 import DailyDeals from './../Home/DailyDeals/dailyDeals';
 import './Product.css';
 import React,{useState,useEffect} from 'react';
-import UpdateProduct from './../EditProduct/updateProduct';
 import {getProduct,deleteProduct} from './../../utills/api';
 import {work,workB} from './../../component/middleware/middleware';
-const Product=({productId})=>{
- const [option,setOption]=useState('Product');
- const [productDetail,setProductDetail]=useState(null);
+import { useNavigate} from "react-router-dom";
 
- const status=(option)=>{
-  setOption(option);
+const Product=({productId})=>{
+ 
+ const [productDetail,setProductDetail]=useState(null);
+ const navigate=useNavigate();
+ const toEditProduct=()=>{
+   navigate(`/Edit-product/${productId}`);
+ }
+ const status=()=>{
+    toEditProduct();
  }
 
  useEffect(() => {
@@ -24,11 +28,11 @@ const on_delete=()=>{
 
     return(
         <>
-        {productDetail=== null ? alert("No product Defined")
+        {productDetail=== null ? <h2>.....Loading</h2>
         :
         <>
        
-        {option === 'Product' ? 
+       
          <div>
         <div className='productA'>
             <div className='productAChild'>
@@ -57,7 +61,7 @@ const on_delete=()=>{
                 <h2>Quantity</h2>
                 <button>ADD To Basket</button>
                 <button>WishList</button>
-                <button onClick={()=>status('edit')}>Edit</button>
+                <button onClick={()=>status()}>Edit</button>
                 <button onClick={on_delete}>Delete</button>
                 <div>
                     <div>
@@ -79,9 +83,8 @@ const on_delete=()=>{
         </div>
         </div>
         
-        : <UpdateProduct setOption={setOption} productId={productId}/>
-        
-        }</>}
+       </>
+        }
         </>
     );
 }

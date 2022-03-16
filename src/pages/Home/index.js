@@ -4,11 +4,11 @@ import DailyDeals from './DailyDeals/dailyDeals';
 import GenreC from './Genre/genre';
 import FooterBanner from './FooterBanner/FooterBanner';
 
-const Home =({statusControl,setProductId})=>{
+const Home =({setProductId})=>{
 return(
     <> 
     <Slider/>
-    <DailyDeals statusControl={statusControl}setProductId={setProductId}/>
+    <DailyDeals setProductId={setProductId}/>
     <GenreC/>
     <FooterBanner/>
    </>

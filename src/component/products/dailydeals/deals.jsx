@@ -3,9 +3,13 @@ import {getProducts,getProductByLimit} from './../../../utills/api';
 import Grid from '@mui/material/Grid';
 import ProductDesign from '../Product/product';
 import {work} from './../../middleware/middleware';
+import { useNavigate} from "react-router-dom";
 
-const Deals=({seeMorep,statusControl,setProductId})=>{
-
+const Deals=({seeMorep,setProductId})=>{
+  const navigate=useNavigate();
+  const toProduct=()=>{
+    navigate('/Product');
+  }
   const [productList,setProductList]=useState([]);
 
   useEffect(() => {
@@ -14,7 +18,7 @@ const Deals=({seeMorep,statusControl,setProductId})=>{
   }, [seeMorep]);
 
   const seeDetails=(id)=>{
-    statusControl('Product');
+    toProduct();
     setProductId(id);
   }
 
